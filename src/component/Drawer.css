@@ -1,0 +1,67 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.drawer {
+    position: fixed;
+    height: 100%;
+    width: 0;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 1);
+    overflow-x: hidden;
+    padding-top: 60px;
+    color: white;
+    box-shadow: 1px 1px 15px 1px grey;    
+}
+/* #00579E */
+/* #7CABCF */
+
+.drawer-enter {
+    width: 0;
+}
+.drawer-enter-active {
+    width: 250px;
+    color: rgba(255, 255, 255, 1);
+    transition-property: color, width;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out
+}
+.drawer-exit {
+    width: 250px;
+    color: rgba(255, 255, 255, 1);
+}
+.drawer-exit-active {
+    width: 0;
+    color: rgba(255, 255, 255, 0);
+    transition-property: color, width;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out
+}
+.drawer-enter-done {
+    width: 250px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.drawer button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: block;
+    background: none;
+    border: 1px solid white;
+    border-radius: 1rem;
+    color: white;
+    /* background: black; */
+}
+
+.drawer ul {
+    list-style: none;
+}
+
+.drawer li {
+    white-space: nowrap;
+    margin-top: 30px;
+}
