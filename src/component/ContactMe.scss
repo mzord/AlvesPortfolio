@@ -2,6 +2,12 @@ textarea {
     resize: none;
     background: transparent;
     color: white;
+    width: 50%;
+    height: 60px;
+}
+
+textarea:focus {
+    outline: none;
 }
   
 input {
@@ -16,6 +22,21 @@ input:focus{
     outline: none;
 }
 
-span {
+button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 17px;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    outline: none;
+}
 
+@media only screen and (max-width: 1000px) {
+    textarea {
+        width: 80%;
+    }
+    input {
+        width: 70%;
+    }
 }

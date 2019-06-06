@@ -26,14 +26,6 @@ const Header = (props) => (
             <div className="title">
                 <h1>Full-Stack Web Developer</h1>
             </div>
-            <div className="wheather">
-                <ul>
-                    <li><code>Today`s Wheather:</code></li>
-                    <li><code>Temp: {(!props.temp ? '...' : props.temp)} </code></li>
-                    <li><code>Humidity: {(!props.hum ? '...' : props.hum)} </code></li>
-                    <li><code>Pressure: {(!props.press ? '...' : props.press)} </code></li>
-                </ul>
-            </div>
         </div>
         <div className="image">
             <img align="middle" alt="Pedro Alves face" src={require("../images/download.png")} />
