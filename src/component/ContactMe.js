@@ -14,6 +14,7 @@ class ContactMe extends React.Component {
             subject: '',
             message: ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     
     handleEmailChange = (event) => {
@@ -33,9 +34,32 @@ class ContactMe extends React.Component {
     }
 
 
-    handleSubmit = (event) => {
+    async handleSubmit(event) {
         event.preventDefault()
-        console.log(this.state)
+        const data = {
+            "username": "mzord",
+            "password": "loki2616"
+        }
+        const auth = {
+            method:"POST",
+            headers: {
+                "Authorization": "application/json",
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin':'*'
+            },
+            body: JSON.stringify(data)
+        }
+        const response = await fetch("https://portpage-api.herokuapp.com/auth", auth)
+        const json = await response.json()
+        const contact = {
+            method:"POST",
+            headers: {
+                "Authorization": "JWT " + json.access_token,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({"subject": this.state.subject, "message": this.state.message})
+        }
+        const send_mail = await fetch("https://portpage-api.herokuapp.com/contact", contact)
     }
 
     render() {
