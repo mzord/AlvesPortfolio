@@ -31,7 +31,6 @@ const Header = (props) => (
             <img align="middle" alt="Pedro Alves face" src={require("../images/download.png")} />
         </div>
     </div>
-
 )
 
 export default Header

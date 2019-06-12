@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Typist from 'react-typist'
 import './Body.scss'
 import './ContactMe.scss'

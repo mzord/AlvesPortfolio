@@ -198,6 +198,19 @@ div {
   .terminal-text {
     text-indent: 140px;
   }
+  #close{
+    width: 17px;
+    height: 17px;
+    margin-left: 13px;
+  }
+  #maximize {
+    width: 17px;
+    height: 17px;
+  }
+  #minimize {
+    width: 17px;
+    height: 17px;
+  }
 }
 
 @media only screen and (max-width: 700px) {

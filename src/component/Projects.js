@@ -28,10 +28,6 @@ const Projects = () => {
                 <p className="open">{"{"}</p>
 
                 <p className="object">
-                    {"Tribute Page: Codepen.io,"}
-                </p>
-
-                <p className="object">
                     {"Infraconex: infraconex.herokuapp.com"}
                 </p>
 
