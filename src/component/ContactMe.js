@@ -9,10 +9,10 @@ class ContactMe extends React.Component {
         this.state = {
             command: false,
             renderForm: false,
-            name: '',
             email: '',
             subject: '',
-            message: ''
+            message: '',
+            sent: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -27,10 +27,6 @@ class ContactMe extends React.Component {
 
     handleSubjectChange = (event) => {
         this.setState({subject: event.target.value})
-    }
-
-    handleNameChange = (event) => {
-        this.setState({name: event.target.value})
     }
 
 
@@ -59,7 +55,10 @@ class ContactMe extends React.Component {
             },
             body: JSON.stringify({"subject": this.state.subject, "message": this.state.message})
         }
-        const send_mail = await fetch("https://portpage-api.herokuapp.com/contact", contact)
+        await fetch("https://portpage-api.herokuapp.com/contact", contact)
+        this.setState({
+            sent: true
+        })
     }
 
     render() {
@@ -84,10 +83,6 @@ class ContactMe extends React.Component {
             <form onSubmit={this.handleSubmit}>
             <p className="object">Header: {"{"}</p>
 
-            <p className="suboject">Name: 
-                <input onChange={this.handleNameChange} type="text" />, 
-            </p>
-
             <p className="suboject">Email: 
                 <input onChange={this.handleEmailChange} type="text" />, 
             </p>
@@ -107,7 +102,7 @@ class ContactMe extends React.Component {
             <p className="suboject-close">{"},"}</p>
 
             <p className="object">
-                <button onClick={this.handleSubmit} type="button">Send</button>
+                <button onClick={this.handleSubmit} type="button">Send</button> {this.state.sent ? ("Thanky you for making contact!") : ""}
             </p>
 
             <p className="close">{"}"}</p>
