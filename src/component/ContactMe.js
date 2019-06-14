@@ -9,8 +9,8 @@ class ContactMe extends React.Component {
         this.state = {
             command: false,
             renderForm: false,
+            name: '',
             email: '',
-            subject: '',
             message: '',
             sent: false
         }
@@ -20,46 +20,47 @@ class ContactMe extends React.Component {
     handleEmailChange = (event) => {
         this.setState({email: event.target.value})
     }
+
+    handleNameChange = (event) => {
+        this.setState({name: event.target.value})
+    }
     
     handleMessageChange = (event) => {
         this.setState({message: event.target.value})
     }
 
-    handleSubjectChange = (event) => {
-        this.setState({subject: event.target.value})
-    }
-
-
     async handleSubmit(event) {
         event.preventDefault()
-        const data = {
-            "username": "mzord",
-            "password": "loki2616"
-        }
-        const auth = {
-            method:"POST",
+        const user = {"username": process.env.REACT_APP_USER, "password": process.env.REACT_APP_PASS}
+        const options = {
+            method: "POST",
             headers: {
-                "Authorization": "application/json",
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin':'*'
             },
-            body: JSON.stringify(data)
+            mode: "cors",
+            body: JSON.stringify({
+                "username": user.username,
+                "password": user.password
+            }),
         }
-        const response = await fetch("https://portpage-api.herokuapp.com/auth", auth)
-        const json = await response.json()
-        const contact = {
-            method:"POST",
+        const auth = await fetch("https://portpage-api.herokuapp.com/auth", options)
+        const auth_response = await auth.json()
+        const token = await auth_response.access_token
+        console.log(token)
+        const contact_options = {
+            method: "POST",
             headers: {
-                "Authorization": "JWT " + json.access_token,
-                "Content-Type": "application/json"
+                'Access-Control-Allow-Origin':'*',
+                "Content-Type": "application/json",
+                "Authorization": "JWT " + token
             },
-            body: JSON.stringify({"subject": this.state.subject, "message": this.state.message})
+            mode: "cors",
+            body: JSON.stringify({"name": this.state.name, "email": this.state.email, "message": this.state.message})
         }
-        await fetch("https://portpage-api.herokuapp.com/contact", contact)
-        this.setState({
-            sent: true
-        })
-    }
+        const contact = await fetch("https://portpage-api.herokuapp.com/contact", contact_options)
+        console.log(contact)
+        }    
 
     render() {
 
@@ -70,7 +71,6 @@ class ContactMe extends React.Component {
     const formHandler = () => {
         this.setState({command: false, renderForm: true})
     }
-
     const form =
         <Typist 
             stdTypingDelay={0} 
@@ -81,31 +81,31 @@ class ContactMe extends React.Component {
         <div>
             <p className="open">{"{"}</p>
             <form onSubmit={this.handleSubmit}>
-            <p className="object">Header: {"{"}</p>
+                <p className="object">Header: {"{"}</p>
 
-            <p className="suboject">Email: 
-                <input onChange={this.handleEmailChange} type="text" />, 
-            </p>
+                <p className="suboject">Name: 
+                    <input onChange={this.handleNameChange} name="name" type="text" />, 
+                </p>
 
-            <p className="suboject">Subject: 
-                <input onChange={this.handleSubjectChange} type="text" />, 
-            </p>
+                <p className="suboject">Email: 
+                    <input onChange={this.handleEmailChange} name="email" type="text" />, 
+                </p>
 
-            <p className="suboject-close">{"},"}</p>
+                <p className="suboject-close">{"},"}</p>
 
-            <p className="object">Message: {"{"}</p>
+                <p className="object">Message: {"{"}</p>
 
-            <p className="suboject">
-                <textarea onChange={this.handleMessageChange} placeholder="" />
-            </p>
+                <p className="suboject">
+                    <textarea onChange={this.handleMessageChange} name="message" placeholder="" />
+                </p>
 
-            <p className="suboject-close">{"},"}</p>
+                <p className="suboject-close">{"},"}</p>
 
-            <p className="object">
-                <button onClick={this.handleSubmit} type="button">Send</button> {this.state.sent ? ("Thanky you for making contact!") : ""}
-            </p>
+                <p className="object">
+                    <button type="submit">Send</button>
+                </p>
 
-            <p className="close">{"}"}</p>
+                <p className="close">{"}"}</p>
             </form>
         </div>
         </Typist>
