@@ -28,11 +28,7 @@ const Projects = () => {
                 <p className="open">{"{"}</p>
 
                 <p className="object">
-                    {"Infraconex: infraconex.herokuapp.com"}
-                </p>
-
-                <p className="object">
-                    {"Tribute Page: Codepen.io,"}
+                    This Portfolio: <a href="https://github.com/mzord/AlvesPortfolio" rel="noopener noreferrer" target="_blank">https://github.com/mzord/AlvesPortfolio</a>
                 </p>
 
                 <p className="close">
