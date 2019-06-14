@@ -1,5 +1,6 @@
 import React from 'react'
 import Typist from 'react-typist'
+import SubmitButton from './SubmitButton'
 import './Body.scss'
 import './ContactMe.scss'
 
@@ -12,6 +13,7 @@ class ContactMe extends React.Component {
             name: '',
             email: '',
             message: '',
+            submitappear: false,
             sent: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -31,6 +33,9 @@ class ContactMe extends React.Component {
 
     async handleSubmit(event) {
         event.preventDefault()
+        this.setState({
+            sent: true
+        })
         const user = {"username": process.env.REACT_APP_USER, "password": process.env.REACT_APP_PASS}
         const options = {
             method: "POST",
@@ -47,7 +52,6 @@ class ContactMe extends React.Component {
         const auth = await fetch("https://portpage-api.herokuapp.com/auth", options)
         const auth_response = await auth.json()
         const token = await auth_response.access_token
-        console.log(token)
         const contact_options = {
             method: "POST",
             headers: {
@@ -58,8 +62,8 @@ class ContactMe extends React.Component {
             mode: "cors",
             body: JSON.stringify({"name": this.state.name, "email": this.state.email, "message": this.state.message})
         }
+        // eslint-disable-next-line
         const contact = await fetch("https://portpage-api.herokuapp.com/contact", contact_options)
-        console.log(contact)
         }    
 
     render() {
@@ -71,45 +75,26 @@ class ContactMe extends React.Component {
     const formHandler = () => {
         this.setState({command: false, renderForm: true})
     }
-    const form =
-        <Typist 
-            stdTypingDelay={0} 
-            avgTypingDelay={0}
-            cursor={{
-                show: false
-            }} >
+    
+    const submitAppear = () => {
+        this.setState({
+            submitappear: true
+        })
+    }
+    
+    const form = 
         <div>
-            <p className="open">{"{"}</p>
-            <form onSubmit={this.handleSubmit}>
-                <p className="object">Header: {"{"}</p>
-
-                <p className="suboject">Name: 
-                    <input onChange={this.handleNameChange} name="name" type="text" />, 
-                </p>
-
-                <p className="suboject">Email: 
-                    <input onChange={this.handleEmailChange} name="email" type="text" />, 
-                </p>
-
-                <p className="suboject-close">{"},"}</p>
-
-                <p className="object">Message: {"{"}</p>
-
-                <p className="suboject">
-                    <textarea onChange={this.handleMessageChange} name="message" placeholder="" />
-                </p>
-
-                <p className="suboject-close">{"},"}</p>
-
-                <p className="object">
-                    <button type="submit">Send</button>
-                </p>
-
-                <p className="close">{"}"}</p>
-            </form>
+            <Typist onTypingDone={submitAppear} stdTypingDelay={0} avgTypingDelay={0} cursor={{show: false}}>
+                <p className="open">Your Name:</p>
+                <input onChange={this.handleNameChange} type="text"/>
+                <p className="open">Your Email:</p>
+                <input onChange={this.handleEmailChange} type="text"/>
+                <p className="open">Message:</p>
+            </Typist>
+            <textarea onChange={this.handleMessageChange} name="message" defaultValue="" />
+            <SubmitButton onClick={this.handleSubmit} appear={this.state.submitappear}>Submit</SubmitButton>
         </div>
-        </Typist>
-
+    
     return (
         <div className="textContent">
             <div className="terminal-header">
@@ -124,7 +109,11 @@ class ContactMe extends React.Component {
                 <p className="open">.....</p>
                 </Typist>) : ("")}
             </div>
-            {this.state.renderForm ? form : ("")}
+            {this.state.renderForm ? 
+            <form onSubmit={this.handleSubmit}>
+                {form}
+            </form> : ""}
+            
         </div>
     )
 }
