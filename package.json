@@ -2,7 +2,7 @@
   "name": "portpage",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mzord.github.io/AlvesPortfolio",
+  "homepage": "https://mzord.github.io/AlvesPortfolio/",
   "dependencies": {
     "@material-ui/core": "^4.0.2",
     "@material-ui/icons": "^4.0.1",

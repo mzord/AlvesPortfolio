@@ -29,6 +29,7 @@ const App = (props) => {
     
                           <Switch location={location}>
                             <Route exact path="/" component={AboutMe} />
+                            <Route path="/AlvesPortfolio" component={AboutMe} />
                             <Route path="/contact" component={ContactMe} />
                             <Route path="/projects" component={Projects} />
                           </Switch>
