@@ -10,7 +10,7 @@ import Projects from './component/Projects';
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 
-const App = (props) => {
+const App = () => {
     return (
       <div className="App">
         <div className="ship-loader">
