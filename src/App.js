@@ -29,7 +29,7 @@ const App = (props) => {
     
                           <Switch location={location}>
                             <Route exact path="/" component={AboutMe} />
-                            <Route path={process.env.PUBLIC_URL + '/'} component={AboutMe} />
+                            <Route exact path={process.env.PUBLIC_URL + '/'} component={AboutMe} />
                             <Route path="/contact" component={ContactMe} />
                             <Route path="/projects" component={Projects} />
                           </Switch>
