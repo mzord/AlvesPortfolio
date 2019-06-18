@@ -1,0 +1,26 @@
+// menubutton -> menuicon and menutext
+
+.menubutton {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.menubutton:hover {
+    color: #FFBA69;
+}
+
+.menuicon {
+    fill: black;
+}
+
+.menutext {
+    margin-top: 3px;
+    padding-left: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+    .menutext {
+        display: none;
+    }
+}

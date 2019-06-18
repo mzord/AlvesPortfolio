@@ -12,11 +12,9 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 const App = () => {
     return (
+      <Router>
       <div className="App">
-        <div className="ship-loader">
-
           <Header />
-            <Router>
             <div className="content">
               <SideMenu />
                     <Body>
@@ -29,7 +27,7 @@ const App = () => {
     
                           <Switch location={location}>
                             <Route exact path="/" component={AboutMe} />
-                            <Route path={process.env.PUBLIC_URL + '/'} component={AboutMe} />
+                            <Route exact path={process.env.PUBLIC_URL + '/'} component={AboutMe} />
                             <Route path="/contact" component={ContactMe} />
                             <Route path="/projects" component={Projects} />
                           </Switch>
@@ -39,9 +37,8 @@ const App = () => {
                     )} />
                     </Body>             
             </div>
-          </Router>
         </div>
-      </div>
+      </Router>
     )
   }
 
