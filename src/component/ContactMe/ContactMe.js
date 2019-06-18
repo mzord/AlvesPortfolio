@@ -1,7 +1,6 @@
 import React from 'react'
 import Typist from 'react-typist'
-import SubmitButton from './SubmitButton'
-import './Body.scss'
+import SubmitButton from '../SubmitButton/SubmitButton'
 import './ContactMe.scss'
 
 class ContactMe extends React.Component {

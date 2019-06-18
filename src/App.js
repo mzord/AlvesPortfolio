@@ -1,22 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import Header from './component/Header'
-import SideMenu from './component/SideMenu'
-import Body from './component/Body'
-import AboutMe from './component/AboutMe';
-import ContactMe from './component/ContactMe';
-import Projects from './component/Projects';
+import Header from './component/Header/Header'
+import SideMenu from './component/SideMenu/SideMenu'
+import Body from './component/Body/Body'
+import AboutMe from './component/AboutMe/AboutMe';
+import ContactMe from './component/ContactMe/ContactMe';
+import Projects from './component/Projects/Projects';
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 
-const App = (props) => {
+const App = () => {
     return (
+      <Router>
       <div className="App">
-        <div className="ship-loader">
-
           <Header />
-            <Router>
             <div className="content">
               <SideMenu />
                     <Body>
@@ -39,9 +37,8 @@ const App = (props) => {
                     )} />
                     </Body>             
             </div>
-          </Router>
         </div>
-      </div>
+      </Router>
     )
   }
 

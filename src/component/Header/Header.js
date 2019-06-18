@@ -28,7 +28,7 @@ const Header = (props) => (
             </div>
         </div>
         <div className="image">
-            <img align="middle" alt="Pedro Alves face" src={require("../images/download.png")} />
+            <img align="middle" alt="Pedro Alves face" src={require("../../images/download.png")} />
         </div>
     </div>
 )

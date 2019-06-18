@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import "./SideMenu.scss"
-import MenuButton from './MenuButton'
+import MenuButton from '../MenuButton/MenuButton'
 
 
 const SideMenu = () => {

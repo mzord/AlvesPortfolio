@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import Typist from 'react-typist'
 import SvgIcon from '@material-ui/core/SvgIcon'
-import './Body.scss'
 
 
 const AboutMe = () => {
