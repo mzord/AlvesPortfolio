@@ -26,10 +26,10 @@ const App = () => {
                         classNames="textContent">
     
                           <Switch location={location}>
-                            <Route exact path="/" component={AboutMe} />
+                            <Route exact path="/AlvesPortfolio" component={AboutMe} />
                             <Route exact path={process.env.PUBLIC_URL + '/'} component={AboutMe} />
-                            <Route path="/contact" component={ContactMe} />
-                            <Route path="/projects" component={Projects} />
+                            <Route path="/AlvesPortfolio/contact" component={ContactMe} />
+                            <Route path="/AlvesPortfolio/projects" component={Projects} />
                           </Switch>
 
                       </CSSTransition>

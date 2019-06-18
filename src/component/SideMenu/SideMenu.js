@@ -10,21 +10,21 @@ const SideMenu = () => {
     <div className="sideMenu">
             <ul id="menuLinks">
                 <li>
-                    <Link to="/">
+                    <Link to="/AlvesPortfolio">
                         <MenuButton link="aboutme">
                             About Me
                         </MenuButton>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/projects">
+                    <Link to="/AlvesPortfolio/projects">
                         <MenuButton link="projects">
                             Projects
                         </MenuButton>
                     </Link>
                 </li>
                 <li>
-                    <Link to ="/contact">
+                    <Link to ="/AlvesPortfolio/contact">
                         <MenuButton link="contactme">
                             Contact Me
                         </MenuButton>
