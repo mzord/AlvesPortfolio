@@ -32,7 +32,7 @@ const Projects = () => {
                 </p>
 
                 <p className="object">
-                    This Portfolio API: <a href="https://github.com/mzord/AlvesPortfolio" rel="noopener noreferrer" target="_blank">http://tiny.cc/nwrg8y</a>
+                    This Portfolio API: <a href="http://tiny.cc/nwrg8y" rel="noopener noreferrer" target="_blank">http://tiny.cc/nwrg8y</a>
                 </p>
 
                 <p className="close">
