@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/AlvesPortfolio/static/css/main.b4da15e6.chunk.css",
-    "main.js": "/AlvesPortfolio/static/js/main.5a6c6261.chunk.js",
-    "main.js.map": "/AlvesPortfolio/static/js/main.5a6c6261.chunk.js.map",
+    "main.js": "/AlvesPortfolio/static/js/main.ef4444a1.chunk.js",
+    "main.js.map": "/AlvesPortfolio/static/js/main.ef4444a1.chunk.js.map",
     "runtime~main.js": "/AlvesPortfolio/static/js/runtime~main.b594c9d9.js",
     "runtime~main.js.map": "/AlvesPortfolio/static/js/runtime~main.b594c9d9.js.map",
     "static/js/2.d8e4379c.chunk.js": "/AlvesPortfolio/static/js/2.d8e4379c.chunk.js",
     "static/js/2.d8e4379c.chunk.js.map": "/AlvesPortfolio/static/js/2.d8e4379c.chunk.js.map",
     "index.html": "/AlvesPortfolio/index.html",
-    "precache-manifest.c8b8261ee7f1a849a6f86e7bfdaf482a.js": "/AlvesPortfolio/precache-manifest.c8b8261ee7f1a849a6f86e7bfdaf482a.js",
+    "precache-manifest.41f5472532d34a00e7f076ae214c65cd.js": "/AlvesPortfolio/precache-manifest.41f5472532d34a00e7f076ae214c65cd.js",
     "service-worker.js": "/AlvesPortfolio/service-worker.js",
     "static/css/main.b4da15e6.chunk.css.map": "/AlvesPortfolio/static/css/main.b4da15e6.chunk.css.map",
     "static/media/download.png": "/AlvesPortfolio/static/media/download.eaabf717.png"
