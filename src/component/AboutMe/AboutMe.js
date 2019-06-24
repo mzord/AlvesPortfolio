@@ -102,6 +102,9 @@ const AboutMe = () => {
                     <p className="suboject">
                         {"Responsive Web Design: FreeCodeCamp.org,"}
                     </p>
+                    <p className="suboject">
+                        {"Rest API with Flask and Python: Udemy"}
+                    </p>
                     <p className="suboject-close">{"}"}</p>
                     <p className="close">{"}"}</p>
                 </Typist>
